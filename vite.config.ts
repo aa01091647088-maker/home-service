@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
-  base: "/home-service/",
+  base: "/",
   plugins: [
     react(),
     VitePWA({
@@ -11,7 +11,7 @@ export default defineConfig({
       manifest: {
         name: "집수리 바로매칭",
         short_name: "집수리",
-        start_url: "/home-service/",
+        start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#ffffff",

@@ -40,7 +40,7 @@ const Badge = ({ type }: { type: Item["badge"] }) => {
 export default function App() {
 
   const [selectedCategory, setSelectedCategory] =
-    useState<Category>("목공");
+    useState<Category>("외부공사");
 const [showManager, setShowManager] = useState(false);
 const [toast, setToast] = useState<string | null>(null);
 const copyText = async (text: string) => {
@@ -66,66 +66,66 @@ const copyText = async (text: string) => {
   목공: [
   {
     level: "팀장",
-    name: "이영무",
+    name: "최명환",
     area: "청주",
-    phone: "tel:01054643944",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    phone: "tel:01092451446",
+    specs: ["석고시공","목작업"],
   },
   {
     level: "프리렌서",
     name: "권혁만",
     area: "청주",
     phone: "tel:01027565572",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "사업자",
     name: "송영성",
     area: "수곡동",
     phone: "tel:01082595898",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "팀장",
     name: "김동진",
     area: "효촌",
     phone: "tel:01040775667",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "프리렌서",
     name: "박길수",
     area: "진천",
     phone: "tel:01063154972",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "프리렌서",
     name: "박희석",
     area: "가경동",
     phone: "tel:01051213301",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "팀장",
     name: "이명수",
     area: "진천",
     phone: "tel:01055601801",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "팀장",
     name: "이석훈",
     area: "가경동",
     phone: "tel:01089467050",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
   {
     level: "프리렌서",
     name: "장정호",
     area: "용암동",
     phone: "tel:01042970010",
-    specs: ["칸막이공사","석고시공","목작업","합판작업","외부목작업"],
+    specs: ["목작업"],
   },
 ],
   전기: [
@@ -133,22 +133,23 @@ const copyText = async (text: string) => {
     level: "사업자",
     name: "인성전기",
     area: "육거리",
-    phone: "tel:01088291187",
-    specs: ["전기수리","누전","차단기","배선","조명"],
+    phone: "tel:0432220502",
+    specs: ["전기관련자재"],
   },
   {
     level: "프리렌서",
     name: "박영득",
     area: "수곡동",
     phone: "tel:01054663561",
-    specs: ["전기수리","누전","차단기","배선","조명"],
+    badge: "인기",
+    specs: ["전기수리","청소","차단기","배선","조명"],
   },
   {
-    level: "프리렌서",
+    level: "사업자",
     name: "홍길동",
     area: "청주",
     phone: "tel:01023234789",
-    specs: ["전기수리","누전","차단기","배선","조명"],
+    specs: ["이전설치","판매","청소"],
   },
   {
     level: "프리렌서",
@@ -328,7 +329,15 @@ const copyText = async (text: string) => {
     area: "수곡동",
     phone: "tel:01091647088",
     badge: "추천",
-    specs: ["외부공사","지붕수리","농가주택","리모델링","보수공사"],
+    specs: ["외부창고","지붕수리","농가주택"],
+  },
+  {
+    level: "사업자",
+    name: "우화영 판넬",
+    area: "청주",
+    phone: "tel:01044173808",
+    badge: "인기",
+    specs: ["판넬시공","용접"],
   },
   {
     level: "사업자",
@@ -336,7 +345,7 @@ const copyText = async (text: string) => {
     area: "모충동",
     phone: "tel:01091647088",
     badge: "인증",
-    specs: ["농가주택","지붕수리","목조주택","외부공사","보수공사"],
+    specs: ["농가주택","지붕수리","목조주택","보수공사"],
   },
   {
     level: "프리렌서",
@@ -344,15 +353,9 @@ const copyText = async (text: string) => {
     area: "청주",
     phone: "tel:01091647088",
     badge: "인기",
-    specs: ["판넬시공","데크공사","다양한보수작업","외부공사","리모델링"],
+    specs: ["데크공사","다양한보수작업"],
   },
-  {
-    level: "사업자",
-    name: "우화영 판넬",
-    area: "청주",
-    phone: "tel:01044173808",
-    specs: ["판넬시공","용접","외부공사","지붕보수","보수공사"],
-  },
+  
 ],
 
 };
@@ -433,7 +436,10 @@ const filteredWorkers = workers.filter(
                 }
               `}
             >
-              {cat} ({data[cat].length})
+              {cat === "전기"
+  ? `전기·에어컨 (${data[cat].length})`
+  : `${cat} (${data[cat].length})`
+}
             </button>
           ))}
         </div>
@@ -442,20 +448,20 @@ const filteredWorkers = workers.filter(
         <div className="mb-2 border rounded-xl py-2 bg-gray-100">
 
   {/* 상단 */}
-  <div className="flex justify-between items-center px-3 text-xs font-bold">
+  <div className="flex justify-between items-center px-3 text-xs font-bold flex-nowrap">
 
-    <span>
-      추천 · 인증 · 인기 배지 운영중
-    </span>
+  <span className="whitespace-nowrap">
+    추천 · 인증 · 인기 배지 운영중
+  </span>
 
-    <button
-      onClick={() => setShowManager(!showManager)}
-      className="text-blue-600"
-    >
-      운영자 {showManager ? "▲" : "▼"}
-    </button>
+  <button
+    onClick={() => setShowManager(!showManager)}
+    className="text-blue-600 whitespace-nowrap ml-2"
+  >
+    운영자 {showManager ? "▲" : "▼"}
+  </button>
 
-  </div>
+</div>
 
   {/* 펼침 영역 */}
   {showManager && (
@@ -499,9 +505,9 @@ const filteredWorkers = workers.filter(
 </div>
 
       {/* 안내문 */}
-      <div className="text-[11px] text-gray-600 text-center pt-1">
-        등록 문의 / 업체 추가 / 정보 수정 가능합니다
-      </div>
+      <div className="text-sm text-gray-900 text-center pt-2 font-semibold">
+  문의 / 업체 추가 / 정보 수정 가능
+</div>
 
     </div>
   )}
@@ -523,7 +529,7 @@ ${selectedPerson.specs.join(" / ")}
 
       copyText(text);
     }}
-    className="text-xs bg-black text-white px-2 py-1 rounded"
+    className="text-lg bg-black text-white px-2 py-1 rounded"
   >
     상세정보 복사
   </button>
@@ -537,7 +543,7 @@ ${selectedPerson.specs.join(" / ")}
 <div className="flex flex-col">
 
   {/* 1열 */}
-  <div className="flex items-center gap-2 text-base font-bold">
+  <div className="flex items-center gap-2 text-lg font-bold">
     <span>{selectedPerson.level}</span>
     <span>{selectedPerson.name}</span>
     <span className="text-blue-700">
@@ -547,7 +553,7 @@ ${selectedPerson.specs.join(" / ")}
 
   {/* 2열 */}
   <div className="flex items-center gap-2 mt-1">
-    <div className="text-base font-bold text-black">
+    <div className="text-lg font-bold text-black">
       {selectedPerson.area}
     </div>
 
@@ -561,7 +567,7 @@ ${selectedPerson.specs.join(" / ")}
   {selectedPerson.specs.map((spec) => (
     <span
       key={spec}
-      className="text-xs bg-gray-200 px-2 py-[2px] rounded-full"
+      className="text-lg bg-gray-200 px-2 py-[2px] rounded-full"
     >
       {spec}
     </span>

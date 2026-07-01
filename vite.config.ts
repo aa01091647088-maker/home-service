@@ -11,18 +11,18 @@ export default defineConfig({
       manifest: {
         name: "집수리 바로매칭",
         short_name: "집수리",
-        start_url: "/",
+        start_url: "/home-service/",
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#ffffff",
         icons: [
           {
-            src: "/icon192.png",
+            src: "icon192.png",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/icon512.png",
+            src: "icon512.png",
             sizes: "512x512",
             type: "image/png"
           }
